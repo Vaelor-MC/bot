@@ -1,6 +1,5 @@
 const { Button } = require('@eartharoid/dbf');
 const ExtendedEmbedBuilder = require('../lib/embed');
-const { isStaff } = require('../lib/users');
 const { MessageFlags } = require('discord.js');
 
 module.exports = class CloseButton extends Button {
@@ -23,58 +22,44 @@ module.exports = class CloseButton extends Button {
 			// the close button on the opening message, the same as using /close
 			await client.tickets.beforeRequestClose(interaction);
 		} else {
-			const ticket = await client.tickets.getTicket(interaction.channel.id, true); // true to override cache and load new feedback
+			const ticket = await client.tickets.getTicket(interaction.channel.id, true); // override cache
 			const getMessage = client.i18n.getLocale(ticket.guild.locale);
-			const staff = await isStaff(interaction.guild, interaction.user.id);
-
-			if (id.expect === 'staff' && !staff) {
-				return await interaction.reply({
-					embeds: [
-						new ExtendedEmbedBuilder()
-							.setColor(ticket.guild.errorColour)
-							.setDescription(getMessage('ticket.close.wait_for_staff')),
-					],
-					flags: MessageFlags.Ephemeral,
-				});
-			} else if (id.expect === 'user' && interaction.user.id !== ticket.createdById) {
-				return await interaction.reply({
-					embeds: [
-						new ExtendedEmbedBuilder()
-							.setColor(ticket.guild.errorColour)
-							.setDescription(getMessage('ticket.close.wait_for_user')),
-					],
-					flags: MessageFlags.Ephemeral,
-				});
-			} else {
-				if (id.accepted) {
-					if (
-						ticket.createdById === interaction.user.id &&
-						ticket.category.enableFeedback &&
-						!ticket.feedback
-					) {
-						return await interaction.showModal(client.tickets.buildFeedbackModal(ticket.guild.locale, { next: 'acceptClose' }));
-					} else {
-						await interaction.deferReply();
-						await client.tickets.acceptClose(interaction);
-					}
+			if (id.accepted) {
+				if (
+					ticket.createdById === interaction.user.id &&
+					ticket.category.enableFeedback &&
+					!ticket.feedback
+				) {
+					return await interaction.showModal(
+						client.tickets.buildFeedbackModal(ticket.guild.locale, {
+							next: 'acceptClose',
+						})
+					);
 				} else {
-					try {
-						await interaction.update({
-							components: [],
-							embeds: [
-								new ExtendedEmbedBuilder({
-									iconURL: interaction.guild.iconURL(),
-									text: ticket.guild.footer,
-								})
-									.setColor(ticket.guild.errorColour)
-									.setDescription(getMessage('ticket.close.rejected', { user: interaction.user.toString() }))
-									.setFooter({ text: null }),
-							],
-						});
-
-					} finally { // this should run regardless of whatever happens above
-						client.tickets.$stale.delete(ticket.id);
-					}
+					await interaction.deferReply();
+					await client.tickets.acceptClose(interaction);
+				}
+			} else {
+				try {
+					await interaction.update({
+						components: [],
+						embeds: [
+							new ExtendedEmbedBuilder({
+								iconURL: interaction.guild.iconURL(),
+								text: ticket.guild.footer,
+							})
+								.setColor(ticket.guild.errorColour)
+								.setDescription(
+									getMessage('ticket.close.rejected', {
+										user: interaction.user.toString(),
+									})
+								)
+								.setFooter({ text: null }),
+						],
+					});
+				} finally {
+					// ensure ticket state is cleaned up
+					client.tickets.$stale.delete(ticket.id);
 				}
 			}
 		}
