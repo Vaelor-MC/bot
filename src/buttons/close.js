@@ -22,19 +22,16 @@ module.exports = class CloseButton extends Button {
 			// the close button on the opening message, the same as using /close
 			await client.tickets.beforeRequestClose(interaction);
 		} else {
-			const ticket = await client.tickets.getTicket(interaction.channel.id, true); // override cache
+			const ticket = await client.tickets.getTicket(interaction.channel.id, true); // true to override cache and load new feedback
 			const getMessage = client.i18n.getLocale(ticket.guild.locale);
+			
 			if (id.accepted) {
 				if (
 					ticket.createdById === interaction.user.id &&
 					ticket.category.enableFeedback &&
 					!ticket.feedback
 				) {
-					return await interaction.showModal(
-						client.tickets.buildFeedbackModal(ticket.guild.locale, {
-							next: 'acceptClose',
-						})
-					);
+					return await interaction.showModal(client.tickets.buildFeedbackModal(ticket.guild.locale, { next: 'acceptClose' }));
 				} else {
 					await interaction.deferReply();
 					await client.tickets.acceptClose(interaction);
@@ -49,16 +46,12 @@ module.exports = class CloseButton extends Button {
 								text: ticket.guild.footer,
 							})
 								.setColor(ticket.guild.errorColour)
-								.setDescription(
-									getMessage('ticket.close.rejected', {
-										user: interaction.user.toString(),
-									})
-								)
+								.setDescription(getMessage('ticket.close.rejected', { user: interaction.user.toString() }))
 								.setFooter({ text: null }),
 						],
 					});
-				} finally {
-					// ensure ticket state is cleaned up
+
+				} finally { // this should run regardless of whatever happens above
 					client.tickets.$stale.delete(ticket.id);
 				}
 			}
