@@ -426,6 +426,11 @@ misc:
       > [Xem `{version}` trên GitHub]
     title: Đã có bản cập nhật
 modals:
+  closeReason:
+    reason:
+      label: Lý do đóng
+      placeholder: Tại sao phiếu này được đóng lại?
+    title: Lý do đóng phiếu
   feedback:
     comment:
       label: Feedback

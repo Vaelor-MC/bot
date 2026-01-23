@@ -462,6 +462,11 @@ menus:
   guild:
     placeholder: Выберите сервер
 modals:
+  closeReason:
+    reason:
+      label: Причина закрытия
+      placeholder: Почему этот билет закрывается?
+    title: Причина закрытия тикета
   topic:
     label: Тема
     placeholder: О чем этот тикет?

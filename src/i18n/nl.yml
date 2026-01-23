@@ -466,6 +466,11 @@ ticket:
   claimed: 🙌 {user} heeft dit ticket geclaimd.
   released: ♻️ {user} heeft dit ticket vrijgegeven.
 modals:
+  closeReason:
+    reason:
+      label: Reden voor sluiting
+      placeholder: Waarom wordt dit ticket gesloten?
+    title: Reden voor sluiting van ticket
   feedback:
     comment:
       placeholder: Heeft u nog aanvullende feedback?

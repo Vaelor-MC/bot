@@ -391,6 +391,11 @@ misc:
           k vyřešení.\n"
     title: ⚠️ Něco se nepovedlo
 modals:
+  closeReason:
+    reason:
+      label: Důvod uzavření
+      placeholder: Proč je tento ticket uzavřen?
+    title: Důvod uzavření lístku
   feedback:
     comment:
       label: Komentář

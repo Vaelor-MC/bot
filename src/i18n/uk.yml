@@ -403,6 +403,11 @@ misc:
       > [Посібник з оновлення]({guide})
     title: Доступне оновлення
 modals:
+  closeReason:
+    reason:
+      label: Причина закриття
+      placeholder: Чому закривається ця заявка?
+    title: Причина закриття заявки
   feedback:
     comment:
       label: Коментар

@@ -392,6 +392,11 @@ misc:
     fields:
       identifier: Identificatore
 modals:
+  closeReason:
+    reason:
+      label: Motivo della chiusura
+      placeholder: Perché questo ticket viene chiuso?
+    title: Motivo della chiusura del ticket
   feedback:
     comment:
       label: Commento

@@ -378,6 +378,11 @@ misc:
       > [更新指南]({guide})
     title: 有可用更新
 modals:
+  closeReason:
+    reason:
+      label: 關閉原因
+      placeholder: 為什麼要關閉此工單？
+    title: 工單關閉原因
   feedback:
     comment:
       label: 意見

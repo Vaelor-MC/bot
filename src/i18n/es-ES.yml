@@ -450,6 +450,11 @@ menus:
   guild:
     placeholder: Seleccione un servidor
 modals:
+  closeReason:
+    reason:
+      label: Motivo del cierre
+      placeholder: ¿Por qué se cierra este ticket?
+    title: Motivo del cierre del ticket
   feedback:
     comment:
       label: Comentario

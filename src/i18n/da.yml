@@ -416,6 +416,11 @@ misc:
       > [Opdateringsvejledning]({guide})\n"
     title: En opdatering er tilgængelig
 modals:
+  closeReason:
+    reason:
+      label: Lukningsårsag
+      placeholder: Hvorfor bliver denne sag lukket?
+    title: Årsag til lukning af sag
   feedback:
     comment:
       label: Kommentar

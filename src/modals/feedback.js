@@ -48,6 +48,9 @@ module.exports = class FeedbackModal extends Modal {
 
 		if (id.next === 'requestClose') await client.tickets.requestClose(interaction, id.reason);
 		else if (id.next === 'acceptClose') await client.tickets.acceptClose(interaction);
+		else if (id.next === 'closeReason') {
+			await interaction.showModal(client.tickets.buildCloseReasonModal(ticket.guild.locale, { next: 'acceptClose' }));
+		}
 
 		const getMessage = client.i18n.getLocale(ticket.guild.locale);
 

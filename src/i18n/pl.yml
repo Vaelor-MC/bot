@@ -361,6 +361,11 @@ misc:
     title: 🐢 Proszę, zwolnij
     description: Spróbuj ponownie za kilka sekund.
 modals:
+  closeReason:
+    reason:
+      label: Powód zamknięcia
+      placeholder: Dlaczego to zgłoszenie jest zamykane?
+    title: Powód zamknięcia zgłoszenia
   feedback:
     rating:
       label: Ocena

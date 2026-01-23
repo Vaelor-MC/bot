@@ -445,6 +445,11 @@ menus:
   guild:
     placeholder: Pasirinkite serverį
 modals:
+  closeReason:
+    reason:
+      label: Uždarymo priežastis
+      placeholder: Kodėl šis bilietas yra uždaromas?
+    title: Bilieto uždarymo priežastis
   feedback:
     comment:
       label: Komentuoti

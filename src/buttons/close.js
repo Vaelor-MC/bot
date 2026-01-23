@@ -31,10 +31,9 @@ module.exports = class CloseButton extends Button {
 					ticket.category.enableFeedback &&
 					!ticket.feedback
 				) {
-					return await interaction.showModal(client.tickets.buildFeedbackModal(ticket.guild.locale, { next: 'acceptClose' }));
+					return await interaction.showModal(client.tickets.buildFeedbackModal(ticket.guild.locale, { next: 'closeReason' }));
 				} else {
-					await interaction.deferReply();
-					await client.tickets.acceptClose(interaction);
+					return await interaction.showModal(client.tickets.buildCloseReasonModal(ticket.guild.locale, { next: 'acceptClose' }));
 				}
 			} else {
 				try {

@@ -392,6 +392,11 @@ misc:
           obicei că un rol de personal a fost șters. [Click here]({url}) pentru instrucțiuni
           de rezolvare.\n"
 modals:
+  closeReason:
+    reason:
+      label: Motiv pentru închidere
+      placeholder: De ce se închide acest tichet?
+    title: Motiv pentru închiderea tichetului
   feedback:
     comment:
       label: Comentariu

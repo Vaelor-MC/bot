@@ -427,6 +427,11 @@ misc:
       > [Update guide]({guide})
     title: An update is available
 modals:
+  closeReason:
+    reason:
+      label: Close reason
+      placeholder: Why is this ticket being closed?
+    title: Ticket closure reason
   feedback:
     comment:
       label: Comment

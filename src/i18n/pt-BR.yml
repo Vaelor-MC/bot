@@ -393,6 +393,11 @@ misc:
           de resolução.\n"
     title: ⚠️ Algo deu errado
 modals:
+  closeReason:
+    reason:
+      label: Motivo do fechamento
+      placeholder: Por que este ticket está sendo fechado?
+    title: Motivo do fechamento do ticket
   feedback:
     comment:
       label: Comentário

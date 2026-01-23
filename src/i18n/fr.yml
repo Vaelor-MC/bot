@@ -308,6 +308,11 @@ misc:
     description: Veuillez tenter une autre catégorie.
     title: ❌ Cette catégorie de ticket n'existe pas
 modals:
+  closeReason:
+    reason:
+      label: Raison de la fermeture
+      placeholder: Pourquoi ce ticket est-il fermé ?
+    title: Raison de la fermeture du ticket
   feedback:
     rating:
       label: Notation

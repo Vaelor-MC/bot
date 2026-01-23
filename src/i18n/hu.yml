@@ -444,6 +444,11 @@ ticket:
       tarthat a válaszadás.
     title: 😴 Jelenleg nem vagyunk elérhetőek
 modals:
+  closeReason:
+    reason:
+      label: Lezárás oka
+      placeholder: Miért záródik ez a hibajegy?
+    title: Hibajegy lezárásának oka
   feedback:
     rating:
       placeholder: 1-5

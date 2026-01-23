@@ -375,6 +375,11 @@ misc:
       > [Update guide]({guide})
     title: Bir güncelleme mevcut
 modals:
+  closeReason:
+    reason:
+      label: Kapatma nedeni
+      placeholder: Bu destek talepleri neden kapatılıyor?
+    title: Destek talebini kapatma nedeni
   feedback:
     comment:
       label: Yorum

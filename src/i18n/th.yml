@@ -429,6 +429,11 @@ ticket:
       {close} ห้องติดต่อ\n"
   feedback: ขอบคุณสำหรับความคิดเห็นของคุณ
 modals:
+  closeReason:
+    reason:
+      label: เหตุผลในการปิด
+      placeholder: ทำไมจึงปิดตั๋วนี้?
+    title: เหตุผลในการปิดตั๋ว
   feedback:
     comment:
       label: ความคิดเห็น

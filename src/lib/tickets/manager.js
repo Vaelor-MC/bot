@@ -1045,6 +1045,28 @@ module.exports = class TicketManager {
 			);
 	}
 
+	buildCloseReasonModal(locale, id) {
+		const getMessage = this.client.i18n.getLocale(locale);
+		return new ModalBuilder()
+			.setCustomId(JSON.stringify({
+				action: 'closeReason',
+				...id,
+			}))
+			.setTitle(getMessage('modals.closeReason.title'))
+			.setComponents(
+				new ActionRowBuilder()
+					.setComponents(
+						new TextInputBuilder()
+							.setCustomId('reason')
+							.setLabel(getMessage('modals.closeReason.reason.label'))
+							.setStyle(TextInputStyle.Paragraph)
+							.setMaxLength(1000)
+							.setMinLength(5)
+							.setPlaceholder(getMessage('modals.closeReason.reason.placeholder'))
+							.setRequired(true),
+					),
+			);
+	}
 
 	/**
 	 * @param {import("discord.js").ChatInputCommandInteraction|import("discord.js").ButtonInteraction} interaction

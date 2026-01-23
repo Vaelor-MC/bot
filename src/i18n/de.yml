@@ -411,6 +411,11 @@ misc:
     description: Der Vorgang ist leider aufgrund unzureichender Berechtigungen 
       fehlgeschlagen.
 modals:
+  closeReason:
+    reason:
+      label: Grund für Schließung
+      placeholder: Warum wird dieses Ticket geschlossen?
+    title: Grund für die Schließung des Tickets
   feedback:
     comment:
       placeholder: Hast du irgendwelches zusätzliches Feedback?

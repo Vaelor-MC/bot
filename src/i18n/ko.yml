@@ -311,6 +311,11 @@ ticket:
         전에 답변을 받을 수도 있습니다.
   released: ♻️ {user}이(가) 이 티켓의 배정을 해제했습니다.
 modals:
+  closeReason:
+    reason:
+      label: 닫는 이유
+      placeholder: 이 티켓을 왜 닫고 있나요?
+    title: 티켓 닫기 이유
   topic:
     placeholder: 이 티켓의 주제가 무엇인가요?
     label: 주제
